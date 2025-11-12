@@ -8,7 +8,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Table(name = "category")
+@Table(name = "product")
 @Entity
 @Getter
 @Setter
@@ -37,5 +37,4 @@ public class Product {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
-
 }
