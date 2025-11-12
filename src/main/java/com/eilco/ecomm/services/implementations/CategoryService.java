@@ -1,10 +1,12 @@
 package com.eilco.ecomm.services.implementations;
 
 import com.eilco.ecomm.mappers.CategoryMapper;
+import com.eilco.ecomm.models.request.CategoryRequest;
 import com.eilco.ecomm.models.response.CategoryResponse;
 import com.eilco.ecomm.repositories.CategoryRepository;
 import com.eilco.ecomm.repositories.entities.Category;
 import com.eilco.ecomm.services.interfaces.ICategoryService;
+import com.eilco.ecomm.services.interfaces.ISellerCategoryService;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.DialectOverride;
@@ -17,7 +19,7 @@ import java.util.stream.Collectors;
 
 @Service
 @AllArgsConstructor
-public class CategoryService implements ICategoryService {
+public class CategoryService implements ICategoryService, ISellerCategoryService {
 
     private final CategoryRepository categoryRepository;
     private final CategoryMapper categoryMapper;
@@ -51,5 +53,26 @@ public class CategoryService implements ICategoryService {
 
     }
 
+    public CategoryResponse saveCategory(CategoryRequest categoryRequest){
+       return categoryMapper.toResponse(
+               categoryRepository.save(
+                       categoryMapper.toEntity(categoryRequest)));
+    }
+
+   public void deleteCategory(Long id){
+       categoryRepository.deleteById(id);
+   }
+
+   public CategoryResponse updateCategory(Long id, CategoryRequest categoryRequest){
+
+       Category existingCategory = categoryRepository.findById(id)
+               .orElseThrow(() -> {
+                   return  new RuntimeException("Category not found");
+               });
+
+       existingCategory.setName(categoryRequest.getName());
+
+       return categoryMapper.toResponse(categoryRepository.save(existingCategory));
+   }
 
 }
