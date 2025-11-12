@@ -7,7 +7,8 @@ import java.util.List;
 public interface ICategoryService {
 
     //List<CategoryResponse> findAllCategory();
-    CategoryResponse findCategoryById(Long id);
-    CategoryResponse findCategoryByName(String name);
+    CategoryResponse findMyCategoryById(Long id);
+    List<CategoryResponse> findMyCategoryByName(String name);
+    List<CategoryResponse> findMyAllCategories();
 
 }
