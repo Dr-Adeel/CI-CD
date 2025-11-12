@@ -1,8 +1,6 @@
 package com.eilco.ecomm.controllers;
 
 import com.eilco.ecomm.models.response.CategoryResponse;
-import com.eilco.ecomm.repositories.entities.Category;
-import com.eilco.ecomm.services.implementations.CategoryService;
 import com.eilco.ecomm.services.interfaces.ICategoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -11,7 +9,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
-import java.util.Optional;
 
 @RequiredArgsConstructor
 @RequestMapping("/api/category")
