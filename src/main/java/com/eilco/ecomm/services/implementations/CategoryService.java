@@ -38,7 +38,6 @@ public class CategoryService implements ICategoryService {
             return new RuntimeException("Category not found");
         });
         return categoryMapper.toResponse(category);
-
     }
 
 
