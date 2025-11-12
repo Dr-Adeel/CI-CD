@@ -2,7 +2,6 @@ package com.eilco.ecomm.controllers.seller;
 
 import com.eilco.ecomm.models.request.CategoryRequest;
 import com.eilco.ecomm.models.response.CategoryResponse;
-import com.eilco.ecomm.services.implementations.CategoryService;
 import com.eilco.ecomm.services.interfaces.ISellerCategoryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
