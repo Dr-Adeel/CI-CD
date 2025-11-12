@@ -1,5 +1,6 @@
 package com.eilco.ecomm.models.request;
 
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,5 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class CategoryRequest {
+
+    @NotBlank
     private String name;
 }
