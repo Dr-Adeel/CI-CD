@@ -8,7 +8,7 @@ import org.springframework.data.annotation.LastModifiedDate;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
-@Table(name = "category")
+@Table(name = "product")
 @Entity
 @Getter
 @Setter
